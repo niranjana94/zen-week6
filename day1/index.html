@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Typescript</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <script>
+    var container = document.createElement('div');
+    container.classList.add('container');
+
+    var divchunk = document.createElement('div');
+    divchunk.id = 'chunk';
+
+    var divreduce = document.createElement('div');
+    divreduce.id = 'reduce';
+
+    var divfilter = document.createElement('div');
+    divfilter.id = 'filter';
+
+    var divfind = document.createElement('div');
+    divfind.id = 'find';
+
+    var divsum = document.createElement('div');
+    divsum.id = 'sum';
+
+    container.append(divchunk,divreduce,divfilter,divfind,divsum);
+    document.body.append(container);
+    </script>
+    
+    <script src="script.js"></script>
+    <script>
+        function load (){
+            
+            var chunkval = document.getElementById('chunk');
+            var values = chunk([1,2,3,4,5,6],2);            
+            chunkval.innerHTML = `<p>Chunk:</br><span>Array -[1,2,3,4,5,6] </span>output - ${JSON.stringify(values)}</p>`;
+
+            var reducediv = document.getElementById('reduce');
+            var values = reduce([1,2,3,4,5,6]);
+            reducediv.innerHTML = `<p>Reduce:</br><span>Array -[1,2,3,4,5,6] </span>output - ${JSON.stringify(values)}</p>`;
+
+            var filterdiv = document.getElementById('filter');
+            var values = filter([1,2,3,4,5,6]);
+            filterdiv.innerHTML = `<p>Filter:</br><span>Array -[1,2,3,4,5,6] </span>output - ${JSON.stringify(values)}</p>`;
+
+            var finddiv = document.getElementById('find');
+            var values = find([1,2,3,4,5,6]);
+            finddiv.innerHTML = `<p>Find:</br><span>Array -[1,2,3,4,5,6] </span>output - ${JSON.stringify(values)}</p>`;
+
+            var sumdiv = document.getElementById('sum');
+            var values = sum([1,2,3,4,5,6]);
+            sumdiv.innerHTML = `<p>Sum:</br><span>Array -[1,2,3,4,5,6] </span>output - ${JSON.stringify(values)}</p>`;
+        }
+        
+        load();
+        
+    </script>
+</body>
+</html>
