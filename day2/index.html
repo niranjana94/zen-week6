@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet shop</title>
+</head>
+<body>
+    
+    <script src = "script.js"></script>
+    <script>
+    var container = document.createElement('div');
+
+    var table = document.createElement('table');
+    table.classList.add('table');
+    table.id = 'table';
+
+   
+    var add =  document.createElement('button');
+    add.type = 'button';
+    add.innerText = 'Add Details ';   
+    add.setAttribute('onclick',"addRow()");
+   
+
+    var submitbut = document.createElement('button');
+    submitbut.type = 'button';
+    submitbut.innerText = 'check';
+    submitbut.setAttribute('onclick','submit()');
+
+    var para = document.createElement('p');
+    para.id ='output';
+
+    container.append(add,table,submitbut,para);
+    document.body.append(container);
+
+    let tabledata = document.querySelector("table");
+    let header = ['Breed','color'];
+    generateTable(tabledata);
+
+
+    function generateTable(tabledata) {
+        var tr = tabledata.insertRow(-1);
+        for (var h = 0; h < header.length; h++) {
+            var th = document.createElement('th'); 
+            th.innerHTML = header[h];
+            tr.appendChild(th);
+        }
+    }
+
+    function addRow() {
+        var tab = document.getElementById('table');
+
+        var rowCnt = tab.rows.length;   
+        var tr = tab.insertRow(rowCnt); 
+        
+        tr = tab.insertRow(rowCnt);
+
+        for (var c = 0; c < header.length; c++) {
+            var td = document.createElement('td'); 
+            td = tr.insertCell(c);
+
+            var ele = document.createElement('input');
+            ele.setAttribute('type', 'text');
+            ele.setAttribute('value', '');
+
+            td.appendChild(ele);
+            }
+    }
+
+    function submit() {
+        var myTab = document.getElementById('table');
+        var arrValues = new Array();
+
+        
+        for (row = 1; row < myTab.rows.length - 1; row++) {
+        	
+            for (c = 0; c < myTab.rows[row].cells.length; c++) {  
+                var element = myTab.rows.item(row).cells[c];
+                if (element.childNodes[0].getAttribute('type') == 'text') {
+                    arrValues.push("'" + element.childNodes[0].value + "'");
+                }
+            }
+        }
+        
+      var obj = { 'breed':arrValues[0],'color':arrValues[1]};
+      petshop.enquirylist([obj]);
+      let res = petshop.status();
+
+      document.getElementById('output').innerHTML = res;
+        //console.log(res);
+       
+    }
+    
+
+    </script>
+</body>
+</html>
