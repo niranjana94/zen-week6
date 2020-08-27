@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+    #tv_container {
+    background: url('tv.jpg') no-repeat top left transparent;
+    width: 650px; 
+    height: 450px; 
+    position: relative;
+    }
+    #tv_container video {
+    position: absolute;
+    left:38px;
+    top:35px; 
+}
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div id='tv_container'>   
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4" width="580" height="320" id="video" autoplay >
+
+                       <!-- <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4" type="video/mp4" id="videosrc">-->
+                    </video>                
+                    
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <img src ="remote.jpg" class="remoteimg" usemap="#image-map">               
+
+                <map name="image-map">
+                    <area target="" alt="" title="" href="" coords="188,34,13" shape="circle" id="power" onclick="power()">
+                    <area target="" alt="" title="" href="" coords="183,140,15" shape="circle" id="reducevolume" onclick="volume(-1)">
+                    <area target="" alt="" title="" href="" coords="239,137,16" shape="circle" id="increasevolume" onclick="volume(1)">
+                    <area target="" alt="" title="" href="" coords="212,113,15" shape="circle" id= "channelup" onclick="channel(1)">
+                    <area target="" alt="" title="" href="" coords="212,166,17" shape="circle" id ="channeldown" onclick="channel(-1)">
+                    <area target="" alt="" title="" href="" coords="210,137,13" shape="circle" id = "play" onclick="toggleplay()">
+                </map>   
+
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
